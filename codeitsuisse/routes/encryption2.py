@@ -27,7 +27,7 @@ def evaluate_encryption():
             if (j >= len(text)):
                 jj += 1
                 j = jj
-        result += ["".join(ans)]
+        result += ["+".join(ans)]
 
     logging.info("My result :{}".format(result))
     return json.dumps(result);
