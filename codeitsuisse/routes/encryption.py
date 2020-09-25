@@ -31,7 +31,7 @@ def evaluate_encryption():
                 cur = start
                 start = start + 1
 
-        result.append(''.join(res))
+        result.append('+'.join(res))
 
     logging.info("My result :{}".format(result))
     return json.dumps(result);
