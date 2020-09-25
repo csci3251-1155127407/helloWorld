@@ -25,7 +25,6 @@ def evaluate_encryption():
         start = 1
 
         for i in range(len(processed_text)):
-            print(cur)
             res[cur] += processed_text[i].upper()
             cur = cur + n
             if cur >= len(processed_text):
