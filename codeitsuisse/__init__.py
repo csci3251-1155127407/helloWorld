@@ -2,7 +2,8 @@ from flask import Flask;
 app = Flask(__name__)
 import codeitsuisse.routes.square
 import codeitsuisse.routes.sorting
-import codeitsuisse.routes.encryption
+# import codeitsuisse.routes.encryption
+import codeitsuisse.routes.encryption2
 
 
 
