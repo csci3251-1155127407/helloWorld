@@ -50,7 +50,7 @@ def evaluate_bored_scribe():
         ii += 1
         num_words = [0] * 26
         mn = 0
-        if (ii >= 10):
+        if (ii >= 0):
             mx = 0
             mx_score = -(2 ** 31)
             for i in range(26):
@@ -59,12 +59,23 @@ def evaluate_bored_scribe():
                 # print(t, end=" ")
                 for j in range(len(t)):
                     if (t[j] in ["z", "q", "x", "j"]):
-                        score -= 1
+                        score -= 10
                 # print(score, end=" ")
-                for j in range(len(t) - 2):
+                for j in range(len(t) - 3):
                     if (t[j] + t[j + 1] + t[j + 2] == "the"):
                         score += 10
-                        # print("YES", end=" ")
+                    if (t[j] + t[j + 1] == "is"):
+                        score += 5
+                    if (t[j] + t[j + 1] + t[j + 2] == "are"):
+                        score += 8
+                    if (t[j] + t[j + 1] + t[j + 2] == "was"):
+                        score += 8
+                    if (t[j] + t[j + 1] + t[j + 2] + t[j + 3] == "were"):
+                        score += 12
+                    if (t[j] + t[j + 1] == "to"):
+                        score += 3
+                    if (t[j] + t[j + 1] == "of"):
+                        score += 3
                 if (score > mx_score):
                     mx_score = score
                     mx = i
@@ -78,15 +89,15 @@ def evaluate_bored_scribe():
             ANS += [" ".join(wordninja.split(rot(s, mn)))]
             
 
-    print(1)
+    # print(1)
 
     for i in range(len(ANS)):
         result[i]["originalText"] = ANS[i]
 
-    print(ANS)
+    # print(ANS)
 
     for i in range(len(test)):
-        print("i:", i)
+        # print("i:", i)
         f = "".join(ANS[i].split(" "))
         cnt = 0
         res1, res2, res3 = l_r_palin(f)
@@ -103,10 +114,8 @@ def evaluate_bored_scribe():
             cnt += 1
         result[i]["encryptionCount"] = cnt
 
-    print(3)
+    # print(3)
 
-    logging.info("My result :{}".format(result))
-    return json.dumps(result);
-
-
-
+    # logging.info("My result :{}".format(result))
+    # return json.dumps(result);
+    return jsonify(result)
