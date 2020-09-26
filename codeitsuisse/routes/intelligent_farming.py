@@ -110,7 +110,7 @@ def evaluate_intelligent_farming():
         print(max_score)
 
     logging.info("My result :{}".format(result))
-    return json.dumps(result)
+    return jsonify(result)
 
 
 
