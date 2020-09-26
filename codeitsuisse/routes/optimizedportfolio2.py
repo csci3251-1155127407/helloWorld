@@ -45,7 +45,7 @@ def evaluate_optimizedportfolio():
         for i in range(len(index_futures)):
             x, y = calc(index_futures[i])
             # print(F"x: {x}, y: {y}")
-            EPS = 1e-14
+            EPS = 1e-9
             # if (i == 0 or x < best_x or x == best_x and y < best_y):
             if (i == 0 or x < best_x or math.fabs(x - best_x) <= EPS and y < best_y):
             # if (i == 0 or y < best_y or y == best_y and x < best_x):
