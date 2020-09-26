@@ -20,6 +20,7 @@ def evaluate_yin_yang():
     if n == 5 and m == 3:
         result = 2.9000000000
 
+    logging.info("My result :{}".format(result))
     return json.dumps(result);
 
 
