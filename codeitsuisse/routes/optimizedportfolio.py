@@ -53,9 +53,7 @@ def evaluate_optimizedportfolio():
         portfolio = test["Portfolio"]
         index_futures = test["IndexFutures"]
 
-        lowestRatio = 0
-        lowestFuture = 0
-        lowestContract = 0
+        best = 0
 
         for i in range(len(index_futures)):
             x = calcRatio(index_futures[i])
@@ -63,22 +61,17 @@ def evaluate_optimizedportfolio():
             z = index_futures[i]["FuturePrcVol"]
 
             print(F"WTF x: {x}, y: {y}, z: {z}")
-            if x < calcRatio(index_futures[lowestRatio]):
-                lowestRatio = i
 
-            if y < calcContract(index_futures[lowestContract]):
-                lowestContract = i
+            if x <= calcRatio(index_futures[best]) and z <= index_futures[best]["FuturePrcVol"]:
+                best = i
+            elif x <= calcRatio(index_futures[best]) and z >= index_futures[best]["FuturePrcVol"] and y <= calcContract(index_futures[best]):
+                best = i
+            elif x >= calcRatio(index_futures[best]) and z <= index_futures[best]["FuturePrcVol"] and y <= calcContract(index_futures[best]):
+                best = i
 
-            if z < index_futures[lowestFuture]["FuturePrcVol"]:
-                lowestFuture = i
+        print('BEST', best)
 
-
-        print('PICK', lowestRatio, lowestFuture, lowestContract)
-
-        if lowestRatio == lowestFuture:
-            ans = lowestRatio
-        else:
-            ans = lowestContract
+        ans = best
 
         result["outputs"] += [{"HedgePositionName": index_futures[ans]["Name"], "OptimalHedgeRatio": calcRatio(index_futures[ans]), "NumFuturesContract": calcContract(index_futures[ans])}]
 
