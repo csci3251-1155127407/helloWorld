@@ -21,11 +21,11 @@ def calc(index_future):
 
 def calcRatio(index_future):
     x = portfolio["SpotPrcVol"] * index_future["CoRelationCoefficient"] / index_future["FuturePrcVol"]
-    return round(x, 3)
+    return x
 
 def calcContract(index_future):
-    y = calcRatio(index_future) * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
-    return round(y)
+    y = round(calcRatio(index_future), 3) * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
+    return y
 
 @app.route('/optimizedportfolio', methods=['POST'])
 def evaluate_optimizedportfolio():
@@ -60,7 +60,7 @@ def evaluate_optimizedportfolio():
         else:
             ans = lowestFuture
 
-        result["outputs"] += [{"HedgePositionName": index_futures[ans]["Name"], "OptimalHedgeRatio": calcRatio(index_futures[ans]), "NumFuturesContract": calcContract(index_futures[ans])}]
+        result["outputs"] += [{"HedgePositionName": index_futures[ans]["Name"], "OptimalHedgeRatio": round(calcRatio(index_futures[ans]), 3), "NumFuturesContract": round(calcContract(index_futures[ans]))}]
 
 
     logging.info("My result :{}".format(result))
