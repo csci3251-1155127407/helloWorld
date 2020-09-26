@@ -28,6 +28,7 @@ def l_r_palin(s):
     for i in range(len(s) - 1):
         if (s[i] == s[i + 1]):
             j = 0
+            res3 += 1
             while (i - (j + 1) >= 0 and i + 1 + (j + 1) < len(s) and s[i - (j + 1)] == s[i + 1 + (j + 1)]):
                 j += 1
                 res3 += 1
