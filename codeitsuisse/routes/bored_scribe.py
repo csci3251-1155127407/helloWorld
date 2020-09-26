@@ -27,6 +27,15 @@ def l_r_palin(s):
         if (j * 2 + 1 > res2 - res1 + 1):
             res1 = i - j
             res2 = i + j
+    for i in range(len(s) - 1):
+        if (s[i] == s[i + 1]):
+            j = 0
+            while (i - (j + 1) >= 0 and i + 1 + (j + 1) < len(s) and s[i - (j + 1)] == s[i + 1 + (j + 1)]):
+                j += 1
+                res3 += 1
+            if (j * 2 + 2 > res2 - res1 + 1):
+                res1 = i - j
+                res2 = i + j + 1
     if (res3 == 0):
         return 0, 0, 0
     return res1, res2, res3
