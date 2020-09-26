@@ -31,7 +31,7 @@ def dfs():
     global so_far
     global ans
     if (len(so_far) > 1 and so_far[-1][1] == data["origin"]["genome"]):
-        print("so_far:", so_far)
+        # print("so_far:", so_far)
         ans += [so_far[:]]
         # print("ans:", ans)
         return
@@ -68,12 +68,12 @@ def evaluate_contact_trace():
     so_far += [(data["infected"]["name"], data["infected"]["genome"])]
     dfs()
 
-    print("ans:", ans)
+    # print("ans:", ans)
 
     result = []
     for i in ans:
         t = [j[0] for j in i]
-        print("t:", t)
+        # print("t:", t)
         for j in range(len(i) - 1):
             if (diff(i[j][1], i[j + 1][1]) == 2):
                 t[j] += "*"
