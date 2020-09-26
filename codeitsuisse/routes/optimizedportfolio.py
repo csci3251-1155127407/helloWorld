@@ -34,12 +34,14 @@ def evaluate_optimizedportfolio():
         index_futures = test["IndexFutures"]
 
         best = ""
-        best_x = 9e19
-        best_y = 9e19
+        best_x = 9e18
+        best_y = 9e18
+        best_future = 9e18
+
         for i in range(len(index_futures)):
             x, y = calc(index_futures[i])
-            # print(F"x: {x}, y: {y}")
-            if ((x < best_x) or (x == best_x and y < best_y)):
+            print(F"x: {x}, y: {y}")
+            if ((x < best_x) or (x == best_x and index_futures[i]["FuturePrcVol"] < best_future) or (x == best_x and index_futures[i]["FuturePrcVol"] == best_future and y < best_y)):
                 best = index_futures[i]["Name"]
                 best_x = x
                 best_y = y
