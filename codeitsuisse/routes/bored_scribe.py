@@ -50,14 +50,25 @@ def evaluate_bored_scribe():
         ii += 1
         num_words = [0] * 26
         mn = 0
-        if (ii >= 80):
-            zzz = [0] * 26
-            mo = 0
-            for ss in s:
-                zzz[ord(ss) - ord('a')] += 1
-                if (zzz[ord(ss) - ord('a')] > zzz[mo]):
-                    mo = ord(ss) - ord('a')
-            ANS += [" ".join(wordninja.split(rot(s, (31 - mo) % 26)))]
+        if (ii >= 10):
+            mx = 0
+            mx_score = -(2 ** 31)
+            for i in range(26):
+                score = 0
+                t = rot(s, i)
+                # print(t, end=" ")
+                for j in range(len(t)):
+                    if (t[j] in ["z", "q", "x", "j"]):
+                        score -= 1
+                # print(score, end=" ")
+                for j in range(len(t) - 2):
+                    if (t[j] + t[j + 1] + t[j + 2] == "the"):
+                        score += 10
+                        # print("YES", end=" ")
+                if (score > mx_score):
+                    mx_score = score
+                    mx = i
+            ANS += [" ".join(wordninja.split(rot(s, mx)))]
         else:
             for i in range(26):
                 t = rot(s, i)
@@ -79,16 +90,16 @@ def evaluate_bored_scribe():
         f = "".join(ANS[i].split(" "))
         cnt = 0
         res1, res2, res3 = l_r_palin(f)
-        print(res1, res2, f[res1:res2 + 1])
+        # print(res1, res2, f[res1:res2 + 1])
         vis = {}
         while (test[i] != f):
             if not (f in vis):
                 vis[f] = True
             else:
-                cnt = 0
+                cnt = 1
                 break
             f = rot(f, res3 + sum(ord(f[j]) for j in range(res1, res2 + 1)))
-            print(f)
+            # print(f)
             cnt += 1
         result[i]["encryptionCount"] = cnt
 
