@@ -1,8 +1,8 @@
-print("[", end="")
+while (True):
+    s = input()[45:]
+    if (s == ""):
+        continue
+    print(s)
+    if (s == "</svg>"):
+        break
 
-for i in range(200):
-    print(F'"{input()}"',end="")
-    if (i < 199):
-        print(",")
-
-print("]", end="")

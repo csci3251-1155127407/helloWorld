@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="333" height="666">
+	<circle cx="166" cy="0" r="1" fill="none" stroke="blue" /><polyline fill="none" stroke="black" points="101,339 96,344" />
+	<polyline fill="none" stroke="black" points="166,3 206,43" />
+	<polyline fill="none" stroke="black" points="224,282 224,293 227,293 227,282" />
+	<polyline fill="none" stroke="black" points="228,116 228,157 234,157 234,116" />
+	<polyline fill="none" stroke="black" points="224,343 224,396 248,396 248,343" />
+	<polyline fill="none" stroke="black" points="222,188 222,216 247,216 247,188" />
+	<polyline fill="none" stroke="black" points="218,221 218,278 225,278 225,221" />
+	<polyline fill="none" stroke="black" points="238,399 238,449 256,449 256,399" />
+	<polyline fill="none" stroke="black" points="211,298 211,341 239,341 239,298" />
+	<polyline fill="none" stroke="black" points="287,287 287,340 311,340 311,287" />
+	<polyline fill="none" stroke="black" points="217,47 196,68" />
+	<polyline fill="none" stroke="black" points="77,447 77,465 158,465 158,447" />
+	<polyline fill="none" stroke="black" points="58,579 58,585 149,585 149,579" />
+	<polyline fill="none" stroke="black" points="231,320 231,335 235,335 235,320" />
+	<polyline fill="none" stroke="black" points="225,163 236,174" />
+	<polyline fill="none" stroke="black" points="238,180 235,183" />
+	<polyline fill="none" stroke="black" points="191,72 231,112" />
+</svg>
