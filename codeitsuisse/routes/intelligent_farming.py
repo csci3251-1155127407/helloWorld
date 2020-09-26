@@ -65,6 +65,8 @@ def evaluate_intelligent_farming():
 
         # ans = "ACGT" * num_acgt
 
+        ans = ""
+
         for i in range(num_acgt):
             if (rem_a >= 1):
                 ans += "A"
