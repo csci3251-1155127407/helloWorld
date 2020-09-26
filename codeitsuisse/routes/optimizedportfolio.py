@@ -61,15 +61,13 @@ def evaluate_optimizedportfolio():
             print(F"WTF x: {x}, y: {y}, z: {z}")
             if (calcRatio(index_futures[i]) < calcRatio(index_futures[lowestRatio])) or ((calcRatio(index_futures[i]) == calcRatio(index_futures[lowestRatio])) and (calcContract(index_futures[i]) < calcContract(index_futures[lowestRatio]))):
                 lowestRatio = i
-            # if (index_futures[i]["FuturePrcVol"] < index_futures[lowestFuture]["FuturePrcVol"]):
-            #     lowestFuture = i
+            if (index_futures[i]["FuturePrcVol"] < index_futures[lowestFuture]["FuturePrcVol"]) or ((index_futures[i]["FuturePrcVol"] == index_futures[lowestFuture]["FuturePrcVol"])) and (calcContract(index_futures[i]) < calcContract(index_futures[lowestFuture])):
+                lowestFuture = i
 
-        # if calcContract(index_futures[lowestRatio]) < calcContract(index_futures[lowestFuture]):
-        #     ans = lowestRatio
-        # else:
-        #     ans = lowestFuture
-
-        ans = lowestRatio
+        if calcContract(index_futures[lowestRatio]) < calcContract(index_futures[lowestFuture]):
+            ans = lowestRatio
+        else:
+            ans = lowestFuture
 
         result["outputs"] += [{"HedgePositionName": index_futures[ans]["Name"], "OptimalHedgeRatio": calcRatio(index_futures[ans]), "NumFuturesContract": calcContract(index_futures[ans])}]
 
