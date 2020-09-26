@@ -5,3 +5,4 @@ import codeitsuisse.routes.salad_spree
 import codeitsuisse.routes.revisitgeometry
 import codeitsuisse.routes.clean_floor
 import codeitsuisse.routes.inventory_management
+import codeitsuisse.routes.intelligent_farming
