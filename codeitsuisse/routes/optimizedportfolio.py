@@ -34,8 +34,8 @@ def evaluate_optimizedportfolio():
         index_futures = test["IndexFutures"]
 
         best = ""
-        best_x = 9e18
-        best_y = 9e18
+        best_x = 9e20
+        best_y = 9e20
         for i in range(len(index_futures)):
             x, y = calc(index_futures[i])
             # print(F"x: {x}, y: {y}")
