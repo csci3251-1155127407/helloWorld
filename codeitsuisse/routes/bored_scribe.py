@@ -76,6 +76,14 @@ def evaluate_bored_scribe():
                         score += 3
                     if (t[j] + t[j + 1] == "of"):
                         score += 3
+                    if (t[j] + t[j + 1] == "th"):
+                        score += 3
+                    if (t[j] + t[j + 1] == "er"):
+                        score += 3
+                    if (t[j] + t[j + 1] == "on"):
+                        score += 3
+                    if (t[j] + t[j + 1] == "an"):
+                        score += 3
                 if (score > mx_score):
                     mx_score = score
                     mx = i
@@ -107,7 +115,7 @@ def evaluate_bored_scribe():
             if not (f in vis):
                 vis[f] = True
             else:
-                cnt = 0
+                cnt = -1
                 break
             f = rot(f, res3 + sum(ord(f[j]) for j in range(res1, res2 + 1)))
             # print(f)
