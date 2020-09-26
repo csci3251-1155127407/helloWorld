@@ -12,3 +12,4 @@ import codeitsuisse.routes.social_distancing
 import codeitsuisse.routes.olympiad_of_babylon
 import codeitsuisse.routes.contact_trace
 import codeitsuisse.routes.optimizedportfolio
+import codeitsuisse.routes.bored_scribe
