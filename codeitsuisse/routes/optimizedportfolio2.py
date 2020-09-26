@@ -14,7 +14,7 @@ def my_round(n, places=0):
     if (places != 0):
         return normal_round((10 ** places) * n) / (10**places)
     else:
-        return int(normal_round((10 ** places) * n) / (10**places))
+        return int(normal_round((10 ** places) * n) / (10**places) + 1e-6)
 
 def calc(index_future):
     global portfolio
@@ -46,7 +46,8 @@ def evaluate_optimizedportfolio():
             x, y = calc(index_futures[i])
             # print(F"x: {x}, y: {y}")
             EPS = 1e-14
-            if (i == 0 or x < best_x or abs(x - best_x) <= EPS and y < best_y):
+            if (i == 0 or x < best_x or x == best_x and y < best_y):
+            # if (i == 0 or x < best_x or abs(x - best_x) <= EPS and y < best_y):
             # if (i == 0 or y < best_y or y == best_y and x < best_x):
             # if (i == 0 or x + index_futures[i]["FuturePrcVol"] < best_xp or x + index_futures[i]["FuturePrcVol"] == best_xp and y < best_y):
                 best = index_futures[i]["Name"]
