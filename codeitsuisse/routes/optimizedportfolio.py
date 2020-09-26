@@ -1,5 +1,6 @@
 import logging
 import json
+import math
 
 from flask import request, jsonify;
 
@@ -24,8 +25,12 @@ def calcRatio(index_future):
     return x
 
 def calcContract(index_future):
-    y = round(calcRatio(index_future), 3) * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
+    y = calcRatio(index_future) * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
     return y
+
+def round_up(n, decimals=0):
+    multiplier = 10 ** decimals
+    return math.ceil(n * multiplier) / multiplier
 
 @app.route('/optimizedportfolio', methods=['POST'])
 def evaluate_optimizedportfolio():
@@ -60,7 +65,7 @@ def evaluate_optimizedportfolio():
         else:
             ans = lowestFuture
 
-        result["outputs"] += [{"HedgePositionName": index_futures[ans]["Name"], "OptimalHedgeRatio": round(calcRatio(index_futures[ans]), 3), "NumFuturesContract": round(calcContract(index_futures[ans]))}]
+        result["outputs"] += [{"HedgePositionName": index_futures[ans]["Name"], "OptimalHedgeRatio": round_up(calcRatio(index_futures[ans]), 3), "NumFuturesContract": int(round_up(calcContract(index_futures[ans]), 0))}]
 
 
     logging.info("My result :{}".format(result))
