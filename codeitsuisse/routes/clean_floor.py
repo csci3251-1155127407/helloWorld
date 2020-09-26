@@ -9,9 +9,14 @@ logger = logging.getLogger(__name__)
 
 a = []
 
+def fix(index):
+    if (a[index] < 0):
+        a[index] %= 2
+        a[index] = abs(a[index])
+
 def deal_with(index):
     a[index + 1] -= a[index]
-    a[index + 1] = abs(a[index + 1])
+    fix(index + 1)
     return a[index] * 2
 
 
@@ -45,7 +50,7 @@ def evaluate_clean_floor():
             if (a[last_dirty] == 0):
                 break
             a[i + 1] -= 1
-            a[i + 1] = abs(a[i + 1])
+            fix(i + 1)
             ans += 1
         last_dirty_level = a[last_dirty]
         ans += last_dirty_level + (last_dirty_level + 1) * last_dirty_level
