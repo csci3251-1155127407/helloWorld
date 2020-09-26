@@ -53,7 +53,8 @@ def evaluate_clean_floor():
             fix(i + 1)
             ans += 1
         last_dirty_level = a[last_dirty]
-        ans += last_dirty_level + (last_dirty_level + 1) * last_dirty_level
+        ans += last_dirty_level * 2 + last_dirty_level % 2
+        # ans += last_dirty_level + (last_dirty_level + 1) * last_dirty_level
 
         result['answers'][str(test_id)] = ans
 
