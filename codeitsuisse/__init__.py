@@ -14,4 +14,6 @@ import codeitsuisse.routes.contact_trace
 # import codeitsuisse.routes.optimizedportfolio
 import codeitsuisse.routes.optimizedportfolio2
 import codeitsuisse.routes.bored_scribe
+import codeitsuisse.routes.yin_yang
+
 import codeitsuisse.routes.slsm
