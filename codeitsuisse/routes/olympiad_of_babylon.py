@@ -17,7 +17,8 @@ def solve(idx, books, days, cnt):
         return
     else:
         # giveup all books
-        solve(len(books), books, days, cnt)
+        best = max(best, cnt)
+
         # try to read this book
         for i in range(len(days)):
             if days[i] >= books[idx]:
@@ -54,8 +55,8 @@ def evaluate_olympiad_of_babylon():
                     break
             cur += book
             greedy = greedy + 1
-        best = max(best, greedy)
 
+        best = max(best, greedy)
     solve(0, books, days, 0)
 
     result = {"optimalNumberOfBooks" : best}
