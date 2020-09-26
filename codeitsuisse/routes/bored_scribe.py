@@ -1,5 +1,6 @@
 import logging
 import json
+import wordninja
 
 from flask import request, jsonify;
 from codeitsuisse import app;
@@ -40,11 +41,29 @@ def evaluate_bored_scribe():
 
     result = [{"id": i["id"], "encryptionCount": 0, "originalText": ""} for i in data]
 
-    from codeitsuisse.bored_scribe_py import ANS
+    test = [i["encryptedText"] for i in data]
+
+    # from codeitsuisse.bored_scribe_py import ANS
+
+    ANS = []
+    for s in test:
+        num_words = [0] * 26
+        mn = 0
+        for i in range(26):
+            t = rot(s, i)
+            num_words[i] = len(wordninja.split(t))
+            if (num_words[i] < num_words[mn]):
+                mn = i
+
+        ANS += [" ".join(wordninja.split(rot(s, mn)))]
+
+    print(1)
+
     for i in range(len(ANS)):
         result[i]["originalText"] = ANS[i]
 
-    test = [i["encryptedText"] for i in data]
+    print(ANS)
+
     for i in range(len(test)):
         f = "".join(ANS[i].split(" "))
         cnt = 0
@@ -52,6 +71,8 @@ def evaluate_bored_scribe():
             f = transform(f)
             cnt += 1
         result[i]["encryptionCount"] = cnt
+
+    print(3)
 
     logging.info("My result :{}".format(result))
     return json.dumps(result);
