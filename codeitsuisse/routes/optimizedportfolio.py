@@ -22,11 +22,19 @@ def calc(index_future):
 
 def calcRatio(index_future):
     x = portfolio["SpotPrcVol"] * index_future["CoRelationCoefficient"] / index_future["FuturePrcVol"]
-    return round(x, 3)
+    return my_round(x, 3)
 
 def calcContract(index_future):
     y = calcRatio(index_future) * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
-    return round(y)
+    return my_round(y, 0)
+
+def normal_round(n):
+    if n - math.floor(n) < 0.5:
+        return math.floor(n)
+    return math.ceil(n)
+
+def my_round(n, places):
+    return normal_round((10 ** places) * n) / (10**places)
 
 @app.route('/optimizedportfolio', methods=['POST'])
 def evaluate_optimizedportfolio():
