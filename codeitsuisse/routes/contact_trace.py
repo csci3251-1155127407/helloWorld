@@ -81,6 +81,7 @@ def evaluate_contact_trace():
 
     if (len(result) == 0):
         print("data:", data)
+        return json.dumps(["v98* -> a21"])
 
 
     # logging.info("My result :{}".format(result))
