@@ -11,9 +11,11 @@ logger = logging.getLogger(__name__)
 def evaluate_fruitbasket():
     data = request.get_data();
     logging.info("data sent for evaluation {}".format(data))
-    apple = data.get('maApple')
-    watermelon = data.get('maWatermelon')
-    banana = data.get('maBanana')
+    data = json.loads(data.decode("utf-8"))
+
+    apple = data['maApple']
+    watermelon = data['maWatermelon']
+    banana = data['maBanana']
 
     a = 75
     w = 64
