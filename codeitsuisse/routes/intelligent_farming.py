@@ -47,6 +47,7 @@ def evaluate_intelligent_farming():
                 rem_t = cnt_t - j
 
                 rem_a -= i * 2
+                rem_a -= j
                 rem_a -= (rem_c + rem_g + rem_t) * 2
                 rem_a = max(0, rem_a)
 
@@ -62,7 +63,13 @@ def evaluate_intelligent_farming():
         rem_g = cnt_g - num_acgt
         rem_t = cnt_t - num_acgt
 
-        ans = "ACGT" * num_acgt
+        # ans = "ACGT" * num_acgt
+
+        for i in range(num_acgt):
+            if (rem_a >= 1):
+                ans += "A"
+                rem_a -= 1
+            ans += "ACGT"
 
         for i in range(num_cc):
             if (rem_a >= 2):
