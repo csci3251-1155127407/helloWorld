@@ -22,6 +22,7 @@ def evaluate_yin_yang():
     if n == 6 and m == 4:
         result = 1.8555555556
 
+    result = {"result" : result}
     logging.info("My result :{}".format(result))
     return json.dumps(result);
 
