@@ -50,7 +50,7 @@ def evaluate_bored_scribe():
         ii += 1
         num_words = [0] * 26
         mn = 0
-        if (ii >= 5):
+        if (ii >= 80):
             zzz = [0] * 26
             mo = 0
             for ss in s:
