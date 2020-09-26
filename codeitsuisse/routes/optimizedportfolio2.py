@@ -24,6 +24,7 @@ def calc(index_future):
     x = max(x, 0)
     x = min(x, 1)
     y = x * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
+    y = my_round(y)
     return x, y
 
 @app.route('/optimizedportfolio', methods=['POST'])
@@ -54,6 +55,6 @@ def evaluate_optimizedportfolio():
                 best_x = x
                 best_xp = x + index_futures[i]["FuturePrcVol"]
                 best_y = y
-        result["outputs"] += [{"HedgePositionName": best, "OptimalHedgeRatio": my_round(best_x, 3), "NumFuturesContract": my_round(best_y)}]
+        result["outputs"] += [{"HedgePositionName": best, "OptimalHedgeRatio": best_x, "NumFuturesContract": best_y}]
     logging.info("My result :{}".format(result))
     return json.dumps(result)
