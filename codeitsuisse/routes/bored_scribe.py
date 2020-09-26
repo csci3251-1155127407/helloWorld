@@ -12,12 +12,9 @@ def evaluate_bored_scribe():
     logging.info("data sent for evaluation {}".format(data))
     result = []
 
-    # for d in data:
-    #     s = d.get('searchItemName')
-    #     items = d.get('items')
-    #
-    #     calc = sorted([solve(s, item) for item in items])[:10]
-    #     result.append({"searchItemName" : s, "searchResult" : [e[2] for e in calc]})
+    print(len(data))
+    for test in data:
+        print(test["encryptedText"])
 
     logging.info("My result :{}".format(result))
     return json.dumps(result);
