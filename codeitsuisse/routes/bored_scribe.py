@@ -115,7 +115,7 @@ def evaluate_bored_scribe():
             if not (f in vis):
                 vis[f] = True
             else:
-                cnt = 0
+                cnt = 26
                 break
             f = rot(f, res3 + sum(ord(f[j]) for j in range(res1, res2 + 1)))
             # print(f)
