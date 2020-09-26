@@ -1,5 +1,5 @@
 import logging
-import json
+import json,math
 from flask import request, jsonify;
 from codeitsuisse import app;
 
@@ -11,7 +11,10 @@ def normal_round(n):
     return math.ceil(n)
 
 def my_round(n, places=0):
-    return normal_round((10 ** places) * n) / (10**places)
+    if (places != 0):
+        return normal_round((10 ** places) * n) / (10**places)
+    else:
+        return int(normal_round((10 ** places) * n) / (10**places))
 
 def calc(index_future):
     global portfolio
