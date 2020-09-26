@@ -2,36 +2,45 @@ import logging
 import json
 
 from flask import request, jsonify;
-
 from codeitsuisse import app;
+from shapely.geometry import Polygon, LineString
 
 logger = logging.getLogger(__name__)
 
-@app.route('/salad-spree', methods=['POST'])
-def evaluate_salad_spree():
+def getExtrapoledLine(p1,p2):
+    EXTRAPOL_RATIO = 1000000
+    a = (p1[0]-EXTRAPOL_RATIO*(p2[0]-p1[0]), p1[1]-EXTRAPOL_RATIO*(p2[1]-p1[1]) )
+    b = (p1[0]+EXTRAPOL_RATIO*(p2[0]-p1[0]), p1[1]+EXTRAPOL_RATIO*(p2[1]-p1[1]) )
+    return LineString([a,b])
+
+@app.route('/revisitgeometry', methods=['POST'])
+def evaluate_revisitgeometry():
     data = request.get_json();
     logging.info("data sent for evaluation {}".format(data))
-    n = data.get("number_of_salads");
-    street_map = data.get("salad_prices_street_map")
-    res = 1e9
 
-    for street in street_map:
-        for i in range(len(street) - n + 1):
-            sum = 0
-            flag = 0
-            for j in range(n):
-                if street[i + j] == 'X':
-                    flag = 1
-                    break
-                sum += int(street[i + j])
+    shape = data.get("shapeCoordinates")
+    shape_points = []
 
-            if not flag:
-                res = min(res, sum)
+    for point in shape:
+        shape_points.append((point['x'], point['y']))
 
-    if res == 1e9:
-        res = 0
+    line = data.get("lineCoordinates")
+    line_points = []
 
-    result = {"result" : res}
+    for point in line:
+        line_points.append((point['x'], point['y']))
+
+    print(shape_points, line_points)
+
+    polygon = Polygon(shape_points)
+    line = getExtrapoledLine(*line_points)
+    print(line)
+    intersect = list(line.intersection(polygon).coords)
+    result = []
+
+    for pair in intersect:
+        result.append({"x" : pair[0], "y" : pair[1]})
+
     logging.info("My result :{}".format(result))
     return json.dumps(result);
 
