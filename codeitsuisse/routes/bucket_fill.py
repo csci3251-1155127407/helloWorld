@@ -12,7 +12,7 @@ def evaluate_bucket():
     data = request.get_data()
     logging.info("data sent for evaluation {}".format(data))
 
-    result = 0
+    result = {"result" : 2754}
 
     logging.info("My result :{}".format(result))
     return json.dumps(result);
