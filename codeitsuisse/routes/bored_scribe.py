@@ -63,7 +63,7 @@ def evaluate_bored_scribe():
                 # print(score, end=" ")
                 for j in range(len(t) - 3):
                     if (t[j] + t[j + 1] + t[j + 2] == "the"):
-                        score += 10
+                        score += 100
                     if (t[j] + t[j + 1] == "is"):
                         score += 5
                     if (t[j] + t[j + 1] + t[j + 2] == "are"):
@@ -107,7 +107,7 @@ def evaluate_bored_scribe():
             if not (f in vis):
                 vis[f] = True
             else:
-                cnt = 1
+                cnt = 0
                 break
             f = rot(f, res3 + sum(ord(f[j]) for j in range(res1, res2 + 1)))
             # print(f)
@@ -116,6 +116,6 @@ def evaluate_bored_scribe():
 
     # print(3)
 
-    # logging.info("My result :{}".format(result))
+    logging.info("My result :{}".format(result))
     # return json.dumps(result);
     return jsonify(result)
