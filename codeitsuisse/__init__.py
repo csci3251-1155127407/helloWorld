@@ -8,3 +8,4 @@ import codeitsuisse.routes.inventory_management
 import codeitsuisse.routes.intelligent_farming
 import codeitsuisse.routes.fruitbasket
 import codeitsuisse.routes.cluster
+import codeitsuisse.routes.social_distancing
