@@ -13,7 +13,6 @@ def calc(index_future):
     x = portfolio["SpotPrcVol"] * index_future["CoRelationCoefficient"] / index_future["FuturePrcVol"]
     x = round(x, 3)
     y = x * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
-    y = round(y)
 
     return x, y
 
@@ -37,13 +36,14 @@ def evaluate_optimizedportfolio():
         for i in range(len(index_futures)):
             x, y = calc(index_futures[i])
             print(F"x: {x}, y: {y}")
-            if ((best_x == -1 or x < best_x) or (x == best_x and y < best_y)):
+            EPS = 1e-12
+            if ((best_x == -1 or x < best_x) or (abs(x - best_x) < EPS and y < best_y)):
                 best = index_futures[i]["Name"]
                 best_x = x
                 best_y = y
 
 
-        result["outputs"] += [{"HedgePositionName": best, "OptimalHedgeRatio": best_x, "NumFuturesContract": best_y}]
+        result["outputs"] += [{"HedgePositionName": best, "OptimalHedgeRatio": round(best_x, 3), "NumFuturesContract": round(best_y)}]
 
 
     logging.info("My result :{}".format(result))
