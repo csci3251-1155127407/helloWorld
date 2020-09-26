@@ -14,6 +14,9 @@ def calc(index_future):
     x = round(x, 3)
     y = x * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
 
+    x = max(x, 0)
+    x = min(x, 1)
+
     return x, y
 
 @app.route('/optimizedportfolio', methods=['POST'])
