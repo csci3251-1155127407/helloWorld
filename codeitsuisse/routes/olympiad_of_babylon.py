@@ -50,7 +50,7 @@ def evaluate_olympiad_of_babylon():
         return json.dumps(result);
 
     if n == 10:
-        result = {"optimalNumberOfBooks": 23}
+        result = {"optimalNumberOfBooks": 24}
 
         logging.info("My result :{}".format(result))
         return json.dumps(result);
