@@ -30,6 +30,8 @@ def evaluate_clean_floor():
         a = test['floor']
 
         print(a)
+
+        wtf = sum(a)
         
         last_dirty = 0
         for i in range(len(a)):
@@ -49,7 +51,7 @@ def evaluate_clean_floor():
         last_dirty_level = a[last_dirty]
         ans += last_dirty_level + (last_dirty_level + 1) * last_dirty_level
 
-        result['answers'][str(test_id)] = ans
+        result['answers'][str(test_id)] = wtf
 
     logging.info("My result :{}".format(result))
     return json.dumps(result)
