@@ -12,7 +12,7 @@ def evaluate_intelligent_farming():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     
-    result = {"id": data["id"], "list": []}
+    result = {"runId": data["runId"], "list": []}
     tests = data["list"]
 
     max_len = 0
