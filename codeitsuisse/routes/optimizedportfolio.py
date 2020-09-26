@@ -26,7 +26,7 @@ def calcRatio(index_future):
 
 def calcContract(index_future):
     y = calcRatio(index_future) * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
-    return my_round(y, 0)
+    return int(my_round(y, 0))
 
 def normal_round(n):
     if n - math.floor(n) < 0.5:
@@ -71,6 +71,6 @@ def evaluate_optimizedportfolio():
 
         result["outputs"] += [{"HedgePositionName": index_futures[ans]["Name"], "OptimalHedgeRatio": calcRatio(index_futures[ans]), "NumFuturesContract": calcContract(index_futures[ans])}]
 
-
+    print(my_round(2.5, 0), my_round(3.5, 0))
     logging.info("My result :{}".format(result))
     return json.dumps(result)
