@@ -11,8 +11,10 @@ logger = logging.getLogger(__name__)
 def evaluate_swaphedge():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
+    client_balance = data.get("")
     order = data.get("order")
-    print(data)
+
+
     result = {"order": order}
 
     logging.info("My result :{}".format(result))

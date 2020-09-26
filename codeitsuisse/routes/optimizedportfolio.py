@@ -26,7 +26,7 @@ def calcRatio(index_future):
 
 def calcContract(index_future):
     y = calcRatio(index_future) * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
-    return int(my_round(y, 0))
+    return my_round(y, 0)
 
 def normal_round(n):
     if n - math.floor(n) < 0.5:
@@ -34,7 +34,10 @@ def normal_round(n):
     return math.ceil(n)
 
 def my_round(n, places):
-    return normal_round((10 ** places) * n) / (10**places)
+    if places == 0:
+        return int(normal_round((10 ** places) * n) / (10**places))
+    else:
+        return normal_round((10 ** places) * n) / (10**places)
 
 @app.route('/optimizedportfolio', methods=['POST'])
 def evaluate_optimizedportfolio():
@@ -52,6 +55,7 @@ def evaluate_optimizedportfolio():
 
         lowestRatio = 0
         lowestFuture = 0
+        lowestContract = 0
 
         for i in range(len(index_futures)):
             x = calcRatio(index_futures[i])
@@ -59,21 +63,22 @@ def evaluate_optimizedportfolio():
             z = index_futures[i]["FuturePrcVol"]
 
             print(F"WTF x: {x}, y: {y}, z: {z}")
-            if (x < calcRatio(index_futures[lowestRatio])) or ((x == calcRatio(index_futures[lowestRatio])) and (y < calcContract(index_futures[lowestRatio]))):
+            if x < calcRatio(index_futures[lowestRatio]):
                 lowestRatio = i
 
-        print('PICK', lowestRatio)
+            if y < calcContract(index_futures[lowestContract]):
+                lowestContract = i
 
-        #     if (calcRatio(index_futures[i]) < calcRatio(index_futures[lowestRatio])) or ((calcRatio(index_futures[i]) == calcRatio(index_futures[lowestRatio])) and (calcContract(index_futures[i]) < calcContract(index_futures[lowestRatio]))):
-        #         lowestRatio = i
-        #     if (index_futures[i]["FuturePrcVol"] < index_futures[lowestFuture]["FuturePrcVol"]) or ((index_futures[i]["FuturePrcVol"] == index_futures[lowestFuture]["FuturePrcVol"])) and (calcContract(index_futures[i]) < calcContract(index_futures[lowestFuture])):
-        #         lowestFuture = i
-        #
-        # if calcContract(index_futures[lowestRatio]) < calcContract(index_futures[lowestFuture]):
-        #     ans = lowestRatio
-        # else:
-        #     ans = lowestFuture
-        ans = lowestRatio
+            if z < index_futures[lowestFuture]["FuturePrcVol"]:
+                lowestFuture = i
+
+
+        print('PICK', lowestRatio, lowestFuture, lowestContract)
+
+        if lowestRatio == lowestFuture:
+            ans = lowestRatio
+        else:
+            ans = lowestContract
 
         result["outputs"] += [{"HedgePositionName": index_futures[ans]["Name"], "OptimalHedgeRatio": calcRatio(index_futures[ans]), "NumFuturesContract": calcContract(index_futures[ans])}]
 
