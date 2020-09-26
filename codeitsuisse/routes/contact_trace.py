@@ -56,7 +56,7 @@ def dfs():
 def evaluate_contact_trace():
     global data
     data = request.get_json()
-    logging.info("data sent for evaluation {}".format(data))
+    # logging.info("data sent for evaluation {}".format(data))
 
     global vis
     vis = [0] * len(data["cluster"])
@@ -80,7 +80,8 @@ def evaluate_contact_trace():
         result += [" -> ".join(t)]
 
     if (len(result) == 0):
-        print("=" * 88)
+        print("data:", data)
 
-    logging.info("My result :{}".format(result))
+
+    # logging.info("My result :{}".format(result))
     return json.dumps(result)
