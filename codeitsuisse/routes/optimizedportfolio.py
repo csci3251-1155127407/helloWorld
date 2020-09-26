@@ -37,7 +37,7 @@ def evaluate_optimizedportfolio():
         for i in range(len(index_futures)):
             x, y = calc(index_futures[i])
             print(F"x: {x}, y: {y}")
-            EPS = 1e-6
+            EPS = 1e-9
             if ((best_x == -1 or x < best_x) or (abs(x - best_x) < EPS and y < best_y)):
                 best = index_futures[i]["Name"]
                 best_x = x
