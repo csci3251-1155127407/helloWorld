@@ -59,9 +59,9 @@ def evaluate_optimizedportfolio():
             z = index_futures[i]["FuturePrcVol"]
 
             print(F"WTF x: {x}, y: {y}, z: {z}")
-            if (calcRatio(index_futures[i]) < calcRatio(index_futures[lowestRatio])) or ((calcRatio(index_futures[i]) == calcRatio(index_futures[lowestRatio]) and calcContract(index_futures[i]) < calcContract(index_futures[lowestRatio]))):
+            if (calcRatio(index_futures[i]) < calcRatio(index_futures[lowestRatio])):
                 lowestRatio = i
-            if (index_futures[i]["FuturePrcVol"] < index_futures[lowestFuture]["FuturePrcVol"]) or (index_futures[i]["FuturePrcVol"] == index_futures[lowestFuture]["FuturePrcVol"] and calcContract(index_futures[i]) < calcContract(index_futures[lowestFuture])):
+            if (index_futures[i]["FuturePrcVol"] < index_futures[lowestFuture]["FuturePrcVol"]):
                 lowestFuture = i
 
         if calcContract(index_futures[lowestRatio]) < calcContract(index_futures[lowestFuture]):
