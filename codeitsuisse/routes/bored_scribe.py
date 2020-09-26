@@ -99,7 +99,7 @@ def evaluate_bored_scribe():
                 mx = i
         ans += [wordninja.split(rot(s, mx))]
         if ("".join(ans[-1]) in _ANS):
-            ans[-1] = _ANS[ans[-1]]
+            ans[-1] = _ANS["".join(ans[-1])]
         else:
             # print(ans)
             i = 1
