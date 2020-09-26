@@ -92,14 +92,17 @@ def evaluate_bored_scribe():
             if (score > mx_score):
                 mx_score = score
                 mx = i
-        ANS += [" ".join(wordninja.split(rot(s, mx)))]
+        ANS += [wordninja.split(rot(s, mx))]
+        # print(ANS)
         i = 1
-        while (i < len(ANS)):
-            if (len(ANS[i]) == 1 and ANS[i] != "a"):
-                ANS[i - 1] += ANS[i]
-                ANS.pop(i)
+        while (i < len(ANS[-1])):
+            # print(ANS[-1][i])
+            if (len(ANS[-1][i]) == 1 and ANS[-1][i] != "a"):
+                ANS[-1][i - 1] += ANS[-1][i]
+                ANS[-1].pop(i)
             else:
                 i += 1
+        ANS[-1] = " ".join(ANS[-1])
             
 
     # print(1)
