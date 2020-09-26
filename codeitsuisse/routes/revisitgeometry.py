@@ -32,7 +32,11 @@ def evaluate_revisitgeometry():
 
     print(shape_points, line_points)
 
-    polygon = Polygon(shape_points)
+    if len(shape_points) == 2:
+        polygon = LineString(shape_points)
+    else:
+        polygon = Polygon(shape_points)
+
     line = getExtrapoledLine(*line_points)
     print(line)
     intersect = list(line.intersection(polygon).coords)

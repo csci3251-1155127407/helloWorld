@@ -32,7 +32,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f93a891-cdbc-402d-a835-072fd816d735" name="Default" comment="" />
+    <list default="true" id="2f93a891-cdbc-402d-a835-072fd816d735" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codeitsuisse/routes/revisitgeometry.py" beforeDir="false" afterPath="$PROJECT_DIR$/codeitsuisse/routes/revisitgeometry.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,7 +113,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533474856276</updated>
-      <workItem from="1601030751963" duration="9804000" />
+      <workItem from="1601030751963" duration="11362000" />
     </task>
     <servers />
   </component>
@@ -130,22 +133,22 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1601087862524">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1601088257880">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601087862524" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1601087862524">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601088257880" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1601088257879">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601087862524" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1601087862524">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601088257879" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1601088257879">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601087862524" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1601087862524">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601088257879" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1601088257879">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601087862524" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601088257879" />
     <state x="99" y="74" key="MergeDialog" timestamp="1601088007879">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -154,14 +157,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="846" y="386" width="414" height="267" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601088007889" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1601085738343">
+    <state x="461" y="164" key="SettingsEditor" timestamp="1601088194810">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1601085738343" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1601087962589">
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1601088194810" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1601088273842">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601087962589" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601088273842" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -170,15 +173,10 @@
           <url>file://$PROJECT_DIR$/App.py</url>
           <line>9</line>
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/codeitsuisse/routes/revisitgeometry.py</url>
-          <line>35</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/helloWorld$App.coverage" NAME="App Coverage Results" MODIFIED="1601088222571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/helloWorld$App.coverage" NAME="App Coverage Results" MODIFIED="1601089596286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
