@@ -56,52 +56,50 @@ def evaluate_bored_scribe():
     for s in test:
         ii += 1
         num_words = [0] * 26
-        mn = 0
-        if (ii >= 0):
-            mx = 0
-            mx_score = -(2 ** 31)
-            for i in range(26):
-                score = 0
-                t = rot(s, i)
-                # print(t, end=" ")
-                for j in range(len(t)):
-                    if (t[j] in ["z", "q", "x", "j"]):
-                        score -= 10
-                # print(score, end=" ")
-                for j in range(len(t) - 3):
-                    if (t[j] + t[j + 1] + t[j + 2] == "the"):
-                        score += 100
-                    if (t[j] + t[j + 1] == "is"):
-                        score += 5
-                    if (t[j] + t[j + 1] + t[j + 2] == "are"):
-                        score += 8
-                    if (t[j] + t[j + 1] + t[j + 2] == "was"):
-                        score += 8
-                    if (t[j] + t[j + 1] + t[j + 2] + t[j + 3] == "were"):
-                        score += 12
-                    if (t[j] + t[j + 1] == "to"):
-                        score += 3
-                    if (t[j] + t[j + 1] == "of"):
-                        score += 3
-                    if (t[j] + t[j + 1] == "th"):
-                        score += 3
-                    if (t[j] + t[j + 1] == "er"):
-                        score += 3
-                    if (t[j] + t[j + 1] == "on"):
-                        score += 3
-                    if (t[j] + t[j + 1] == "an"):
-                        score += 3
-                if (score > mx_score):
-                    mx_score = score
-                    mx = i
-            ANS += [" ".join(wordninja.split(rot(s, mx)))]
-        else:
-            for i in range(26):
-                t = rot(s, i)
-                num_words[i] = len(wordninja.split(t))
-                if (num_words[i] < num_words[mn]):
-                    mn = i
-            ANS += [" ".join(wordninja.split(rot(s, mn)))]
+        mx = 0
+        mx_score = -(2 ** 31)
+        for i in range(26):
+            score = 0
+            t = rot(s, i)
+            # print(t, end=" ")
+            for j in range(len(t)):
+                if (t[j] in ["z", "q", "x", "j"]):
+                    score -= 10
+            # print(score, end=" ")
+            for j in range(len(t) - 3):
+                if (t[j] + t[j + 1] + t[j + 2] == "the"):
+                    score += 100
+                if (t[j] + t[j + 1] == "is"):
+                    score += 5
+                if (t[j] + t[j + 1] + t[j + 2] == "are"):
+                    score += 8
+                if (t[j] + t[j + 1] + t[j + 2] == "was"):
+                    score += 8
+                if (t[j] + t[j + 1] + t[j + 2] + t[j + 3] == "were"):
+                    score += 12
+                if (t[j] + t[j + 1] == "to"):
+                    score += 3
+                if (t[j] + t[j + 1] == "of"):
+                    score += 3
+                if (t[j] + t[j + 1] == "th"):
+                    score += 3
+                if (t[j] + t[j + 1] == "er"):
+                    score += 3
+                if (t[j] + t[j + 1] == "on"):
+                    score += 3
+                if (t[j] + t[j + 1] == "an"):
+                    score += 3
+            if (score > mx_score):
+                mx_score = score
+                mx = i
+        ANS += [" ".join(wordninja.split(rot(s, mx)))]
+        i = 1
+        while (i < len(ANS)):
+            if (len(ANS[i]) == 1 and ANS[i] != "a"):
+                ANS[i - 1] += ANS[i]
+                ANS.pop(i)
+            else:
+                i += 1
             
 
     # print(1)
