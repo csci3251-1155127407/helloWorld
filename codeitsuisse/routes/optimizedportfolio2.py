@@ -2,6 +2,7 @@ import logging
 import json,math
 from flask import request, jsonify;
 from codeitsuisse import app;
+import numpy as np
 
 logger = logging.getLogger(__name__)
 
@@ -19,11 +20,11 @@ def my_round(n, places=0):
 def calc(index_future):
     global portfolio
     global index_futures
-    x = portfolio["SpotPrcVol"] * index_future["CoRelationCoefficient"] / index_future["FuturePrcVol"]
+    x = np.double(1) * portfolio["SpotPrcVol"] * index_future["CoRelationCoefficient"] / index_future["FuturePrcVol"]
     x = my_round(x, 3)
     x = max(x, 0)
     x = min(x, 1)
-    y = x * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
+    y = np.double(1) * x * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
     y = my_round(y)
     return x, y
 
@@ -40,14 +41,14 @@ def evaluate_optimizedportfolio():
         index_futures = test["IndexFutures"]
 
         best = ""
-        best_x = 0
-        best_y = 0
+        best_x = np.double(0)
+        best_y = np.double(0)
         for i in range(len(index_futures)):
             x, y = calc(index_futures[i])
             # print(F"x: {x}, y: {y}")
-            EPS = 1e-16
-            # if (i == 0 or x < best_x or x == best_x and y < best_y):
-            if (i == 0 or x < best_x or math.fabs(x - best_x) <= EPS and y < best_y):
+            EPS = 1e-12
+            if (i == 0 or x < best_x or x == best_x and y < best_y):
+            # if (i == 0 or x < best_x or math.fabs(x - best_x) <= EPS and y < best_y):
             # if (i == 0 or y < best_y or y == best_y and x < best_x):
             # if (i == 0 or x + index_futures[i]["FuturePrcVol"] < best_xp or x + index_futures[i]["FuturePrcVol"] == best_xp and y < best_y):
                 best = index_futures[i]["Name"]
