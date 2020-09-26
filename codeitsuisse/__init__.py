@@ -18,3 +18,4 @@ import codeitsuisse.routes.yin_yang
 
 import codeitsuisse.routes.slsm
 import codeitsuisse.routes.bucket_fill
+import codeitsuisse.routes.swaphedge
