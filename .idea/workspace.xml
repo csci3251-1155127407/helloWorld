@@ -32,7 +32,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f93a891-cdbc-402d-a835-072fd816d735" name="Default" comment="" />
+    <list default="true" id="2f93a891-cdbc-402d-a835-072fd816d735" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/codeitsuisse/routes/fruitbasket.py" beforeDir="false" afterPath="$PROJECT_DIR$/codeitsuisse/routes/fruitbasket.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,7 +112,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533474856276</updated>
-      <workItem from="1601030751963" duration="17333000" />
+      <workItem from="1601030751963" duration="17404000" />
     </task>
     <servers />
   </component>

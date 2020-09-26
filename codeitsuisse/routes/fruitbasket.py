@@ -20,6 +20,7 @@ def evaluate_fruitbasket():
     # b = 30
     #
     # result = a * apple + w * watermelon + b * banana
+    result = 0
     logging.info("My result :{}".format(result))
     return json.dumps(result);
 
