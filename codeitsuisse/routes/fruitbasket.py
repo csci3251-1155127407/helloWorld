@@ -13,16 +13,20 @@ def evaluate_fruitbasket():
     logging.info("data sent for evaluation {}".format(data))
     data = json.loads(data.decode("utf-8"))
 
-    # apple = data['maApple']
-    # watermelon = data['maWatermelon']
-    # banana = data['maBanana']
-    #
-    # a = 75
-    # w = 64
-    # b = 32
-    #
-    # result = a * apple + w * watermelon + b * banana
+    cost = {
+        "maPomegranate" : 95,
+        "maRamubutan" : 97,
+        "maWatermelon" : 19,
+        "maApple" : 71,
+        "maAvocado" : 74,
+        "maPineapple" : 46
+    }
+
     result = 0
+
+    for item in data:
+        result += cost[item]
+
     logging.info("My result :{}".format(result))
     return json.dumps(result);
 
