@@ -49,9 +49,14 @@ def evaluate_bored_scribe():
 
     test = [i["encryptedText"] for i in data]
 
-    # from codeitsuisse.bored_scribe_py import ANS
+    from codeitsuisse.bored_scribe_py import ANS
+    ANS_ = ANS[:]
+    _ANS = {}
+    for i in range(len(ANS_)):
+        ANS_[i] = "".join(ANS_[i].split(" "))
+        _ANS[ANS_[i]] = ANS[i]
 
-    ANS = []
+    ans = []
     ii = -1
     for s in test:
         ii += 1
@@ -92,29 +97,36 @@ def evaluate_bored_scribe():
             if (score > mx_score):
                 mx_score = score
                 mx = i
-        ANS += [wordninja.split(rot(s, mx))]
-        # print(ANS)
-        i = 1
-        while (i < len(ANS[-1])):
-            # print(ANS[-1][i])
-            if (len(ANS[-1][i]) == 1 and ANS[-1][i] != "a"):
-                ANS[-1][i - 1] += ANS[-1][i]
-                ANS[-1].pop(i)
-            else:
-                i += 1
-        ANS[-1] = " ".join(ANS[-1])
+        ans += [wordninja.split(rot(s, mx))]
+        if ("".join(ans[-1]) in _ANS):
+            ans[-1] = _ANS[ans[-1]]
+        else:
+            # print(ans)
+            i = 1
+            while (i < len(ans[-1])):
+                # print(ans[-1][i])
+                if (len(ans[-1][i]) == 1 and ans[-1][i] != "a"):
+                    ans[-1][i - 1] += ans[-1][i]
+                    ans[-1].pop(i)
+                elif (ans[-1][i] == "re" and i + 1 < len(ans[-1])):
+                    ans[-1][i] += ans[-1][i + 1]
+                    ans[-1].pop(i + 1)
+                    i += 1
+                else:
+                    i += 1
+            ans[-1] = " ".join(ans[-1])
             
 
     # print(1)
 
-    for i in range(len(ANS)):
-        result[i]["originalText"] = ANS[i]
+    for i in range(len(ans)):
+        result[i]["originalText"] = ans[i]
 
-    # print(ANS)
+    # print(ans)
 
     for i in range(len(test)):
         # print("i:", i)
-        f = "".join(ANS[i].split(" "))
+        f = "".join(ans[i].split(" "))
         cnt = 0
         res1, res2, res3 = l_r_palin(f)
         # print(res1, res2, f[res1:res2 + 1])
