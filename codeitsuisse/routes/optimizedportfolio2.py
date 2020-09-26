@@ -41,19 +41,17 @@ def evaluate_optimizedportfolio():
 
         best = ""
         best_x = 0
-        best_xp = 0
         best_y = 0
         for i in range(len(index_futures)):
             x, y = calc(index_futures[i])
             # print(F"x: {x}, y: {y}")
             EPS = 1e-14
-            if (i == 0 or x < best_x or x == best_x and y < best_y):
-            # if (i == 0 or x < best_x or abs(x - best_x) <= EPS and y < best_y):
+            # if (i == 0 or x < best_x or x == best_x and y < best_y):
+            if (i == 0 or x < best_x or math.fabs(x - best_x) <= EPS and y < best_y):
             # if (i == 0 or y < best_y or y == best_y and x < best_x):
             # if (i == 0 or x + index_futures[i]["FuturePrcVol"] < best_xp or x + index_futures[i]["FuturePrcVol"] == best_xp and y < best_y):
                 best = index_futures[i]["Name"]
                 best_x = x
-                best_xp = x + index_futures[i]["FuturePrcVol"]
                 best_y = y
         result["outputs"] += [{"HedgePositionName": best, "OptimalHedgeRatio": best_x, "NumFuturesContract": best_y}]
     logging.info("My result :{}".format(result))
