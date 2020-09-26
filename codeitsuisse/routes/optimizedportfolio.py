@@ -11,7 +11,7 @@ def calc(index_future):
     global portfolio
     global index_futures
     x = portfolio["SpotPrcVol"] * index_future["CoRelationCoefficient"] / index_future["FuturePrcVol"]
-    # x = round(x, 3)
+    x = round(x, 3)
     y = x * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
 
     # x = max(x, 0)
