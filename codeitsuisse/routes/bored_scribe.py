@@ -18,12 +18,10 @@ def rot(s, n):
 def l_r_palin(s):
     res1, res2, res3 = 0, 0, 0
     for i in range(len(s)):
-        # print(i, end=" ")
         j = 0
         while (i - (j + 1) >= 0 and i + (j + 1) < len(s) and s[i - (j + 1)] == s[i + (j + 1)]):
             j += 1
             res3 += 1
-        # print(j)
         if (j * 2 + 1 > res2 - res1 + 1):
             res1 = i - j
             res2 = i + j
@@ -40,7 +38,6 @@ def l_r_palin(s):
         return 0, 0, 0
     return res1, res2, res3
 
-# long_num_palin("racecarisanenglishpalindrome")
 
 @app.route('/bored-scribe', methods=['POST'])
 def evaluate_bored_scribe():
