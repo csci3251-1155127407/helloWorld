@@ -12,12 +12,20 @@ def calc(index_future):
     global index_futures
     x = portfolio["SpotPrcVol"] * index_future["CoRelationCoefficient"] / index_future["FuturePrcVol"]
     x = round(x, 3)
-    y = round(x, 3) * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
+    y = x * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
 
     # x = max(x, 0)
     # x = min(x, 1)
 
     return x, y
+
+def calcRatio(index_future):
+    x = portfolio["SpotPrcVol"] * index_future["CoRelationCoefficient"] / index_future["FuturePrcVol"]
+    return round(x, 3)
+
+def calcContract(index_future):
+    y = calcRatio(index_future) * portfolio["Value"] / (index_future["IndexFuturePrice"] * index_future["Notional"])
+    return round(y)
 
 @app.route('/optimizedportfolio', methods=['POST'])
 def evaluate_optimizedportfolio():
@@ -33,39 +41,26 @@ def evaluate_optimizedportfolio():
         portfolio = test["Portfolio"]
         index_futures = test["IndexFutures"]
 
-        best = ""
-        best_x = 9e18
-        best_y = 9e18
-
-        # lowest future vasidjhasd
-        best1 = ""
-        best_x1 = 9e18
-        best_y1 = 9e18
-        best_z1 = 9e18
+        lowestRatio = 0
+        lowestFuture = 0
 
         for i in range(len(index_futures)):
-            x, y = calc(index_futures[i])
+            x = calcRatio(index_futures[i])
+            y = calcContract(index_futures[i])
             z = index_futures[i]["FuturePrcVol"]
 
             print(F"x: {x}, y: {y}, z: {z}")
-            if (x < best_x or (x == best_x and y < best_y)):
-                best = index_futures[i]["Name"]
-                best_x = x
-                best_y = y
+            if calcRatio(index_futures[i]) < calcRatio(index_futures[lowestRatio]):
+                lowestRatio = i
+            if index_futures[i]["FuturePrcVol"] < index_futures[lowestFuture]["FuturePrcVol"]:
+                lowestFuture = i
 
-            if (z < best_z1 or (z == best_z1 and y < best_y1)):
-                best1 = index_futures[i]["Name"]
-                best_x1 = x
-                best_y1 = y
-                best_z1 = z
+        if calcContract(index_futures[lowestRatio]) < calcContract(index_futures[lowestFuture]):
+            ans = lowestRatio
+        else:
+            ans = lowestFuture
 
-
-        if best_y1 < best_y:
-            best = best1
-            best_x = best_x1
-            best_y = best_y1
-
-        result["outputs"] += [{"HedgePositionName": best, "OptimalHedgeRatio": round(best_x, 3), "NumFuturesContract": round(best_y)}]
+        result["outputs"] += [{"HedgePositionName": index_futures[ans]["Name"], "OptimalHedgeRatio": calcRatio(index_futures[ans]), "NumFuturesContract": calcContract(index_futures[ans])}]
 
 
     logging.info("My result :{}".format(result))
