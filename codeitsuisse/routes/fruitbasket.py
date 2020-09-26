@@ -25,7 +25,7 @@ def evaluate_fruitbasket():
     result = 0
 
     for item in data:
-        result += cost[item]
+        result += cost[item] * data[item]
 
     logging.info("My result :{}".format(result))
     return json.dumps(result);
