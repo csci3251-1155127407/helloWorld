@@ -79,5 +79,8 @@ def evaluate_contact_trace():
                 t[j] += "*"
         result += [" -> ".join(t)]
 
+    if (len(result) == 0):
+        print("=" * 88)
+
     logging.info("My result :{}".format(result))
     return json.dumps(result)
