@@ -40,23 +40,21 @@ def evaluate_olympiad_of_babylon():
     books = sorted(books)
 
     global best
-    best = max(best, len(days))
+    best = len(days)
 
-    # for _ in range(100):
-    #     random.shuffle(days)
-    #     greedy = 0
-    #     cur = 0
-    #     idx = 0
-    #     for book in books:
-    #         if cur + book > days[idx]:
-    #             idx = idx + 1
-    #             cur = 0
-    #             if idx == n:
-    #                 break
-    #         cur += book
-    #         greedy = greedy + 1
-    #
-    #     best = max(best, greedy)
+    greedy = 0
+    cur = 0
+    idx = 0
+    for book in books:
+        if cur + book > days[idx]:
+            idx = idx + 1
+            cur = 0
+            if idx == n:
+                break
+        cur += book
+        greedy = greedy + 1
+
+    best = max(best, greedy)
 
     solve(0, books, days, 0)
 
