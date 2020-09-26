@@ -22,7 +22,6 @@ def evaluate_slsm():
 
     for edge in edges:
         x, y = list(map(int, edge.split(':')))
-        print(x, y)
         if x == 0:
             spTo[y] = 1
         elif y == 0:
@@ -37,6 +36,7 @@ def evaluate_slsm():
 
     while len(que):
         current = que.popleft()
+        # print(current)
         if current[0] == n:
             winPath = current[2]
             break
@@ -81,18 +81,37 @@ def evaluate_slsm():
 
     result = []
 
-    print(realPath)
+    randomWalk = []
+    cur = 1
+    st = 0
+    while len(randomWalk) <= len(realPath):
+        print(cur, st, randomWalk)
+        if st == 2:
+            cur = cur - 1
+            randomWalk[-1] += [1]
+        elif st == 1:
+            cur = cur + 1
+            randomWalk[-1] += [1]
+        else:
+            cur = cur + 1
+            randomWalk.append([1])
+
+        if spTo[cur] == 0:
+            st = 0
+            cur = to[cur]
+        elif spTo[cur] == 1:
+            st = 1
+        else:
+            st = 2
+
+    print(realPath, randomWalk)
 
     for i in range(len(realPath)):
         for j in range(m):
-            if i == len(realPath) - 1:
-                if j == m - 1:
-                    result += realPath[i]
-                else:
-                    result += realPath[i]
-                    result[-1] = 1
-            else:
+            if j == m - 1:
                 result += realPath[i]
+            else:
+                result += randomWalk[i]
 
     logging.info("My result :{}".format(result))
     return json.dumps(result);
