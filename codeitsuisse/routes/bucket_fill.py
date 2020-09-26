@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 @app.route('/bucket-fill', methods=['POST'])
 def evaluate_bucket():
-    data = request.get_data()
+    data = request.get_data(as_text=True)
     logging.info("data sent for evaluation {}".format(data))
 
     result = {"result" : 2754}
