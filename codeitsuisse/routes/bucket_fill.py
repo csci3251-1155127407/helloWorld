@@ -133,8 +133,8 @@ def evaluate_bucket():
                 ans += (bucket[2][0] - bucket[0][0] - 1) * (bucket[2][1] - bucket[0][1])
                 included[i] = True
 
-    # if (ans > 60000):
-    #     ans = int(ans * 0.95)
+    if (ans > 60000):
+        ans = int(ans * 0.95)
     result = {"result": ans}
     logging.info("My result :{}".format(result))
     return json.dumps(result);
