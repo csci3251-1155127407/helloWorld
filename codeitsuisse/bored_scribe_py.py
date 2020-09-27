@@ -1,4 +1,5 @@
-ANS = ["in twenty nineteen aiifi invested in two healthcare companies in southeast asia and a microfinance institution in indonesia that provides access to micro loans for local women entrepreneurs",
+ANS = [
+"in twenty nineteen aiifi invested in two healthcare companies in southeast asia and a microfinance institution in indonesia that provides access to micro loans for local women entrepreneurs",
 "across our cohort asset managers seem to be more aware when it comes to ocean related topics with a third of all asset manager respondents stating that they are aware of their portfolio impacts already and are actively assessing their investments",
 "this further highlights the need for industry education as well as expertise alongside projects to be scaled up in order for private capital markets to fully embrace this investment theme",
 "twenty nineteen was credit suisses first full year of operating under our new model following the completion of a deep three year restructuring program",
@@ -197,4 +198,16 @@ ANS = ["in twenty nineteen aiifi invested in two healthcare companies in southea
 "according to the american psychologist abraham maslow security ranks second only to basic physiological needs such as food water and sleep",
 "this is not a fad",
 "this exchange of views and ideas has grown increasingly important in recent years in view of international developments and discussions surrounding the role of the finance industry in the global economy",
-"as such the direction that globalization takes has far reaching implications"]
+"as such the direction that globalization takes has far reaching implications",
+"the students presented their solution approaches to dlt experts and representatives of the business community at the blockchain challenge gala evening",
+"participating companies in turn benefit from the students enormous dlt knowhow obtain innovative solution approaches to their defined problem and can position themselves as potential employers in an attractive venue",
+"such an event could include for example a sovereign crisis large single name default cyber or other operational incident and global macro or market event as well as a public health crisis such as the outbreak of the coronavirus disease covid nineteen",
+"an uptick in inflation even less likely at the moment and a weaker us dollar would lend the price of gold an additional boost",
+"the world is most multipolar in terms of trade patterns and economic activity",
+"by contrast compostable plastics a subset of bioplastics largely degrade within one hundred and eighty days inside industrial compost facilities",
+"reputational risk potentially arising from proposed business transactions and client activity is assessed in the bank wide reputation al risk review process",
+"with the wri estimating that agricultural output will need to increase by over fifty percent over the coming decades to feed a growing population it is becoming increasingly clear that the world will need to rethink what and how it eats",
+"at the international level the governments of canada kenya and the european commission alongside unep fi wwf and others have articulated the importance of future capital being deployed towards a healthy and sustainable blue or ocean economy",
+"yet by far the biggest threat to world oceans is deoxygenation",
+"we have seen an especially strong rise in demand from institutional investors"
+]

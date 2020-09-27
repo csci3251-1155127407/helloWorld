@@ -68,8 +68,8 @@ def evaluate_bored_scribe():
             t = rot(s, i)
             # print(t, end=" ")
             for j in range(len(t)):
-                if (t[j] in ["z", "q", "x", "j"]):
-                    score -= 10
+                if (t[j] in ["z", "q", "x"]):
+                    score -= 35
             # print(score, end=" ")
             for j in range(len(t) - 3):
                 if (t[j] + t[j + 1] + t[j + 2] == "the"):
@@ -82,6 +82,10 @@ def evaluate_bored_scribe():
                     score += 8
                 if (t[j] + t[j + 1] + t[j + 2] + t[j + 3] == "were"):
                     score += 12
+                if (t[j] + t[j + 1] + t[j + 2] + t[j + 3] == "have"):
+                    score += 8
+                if (t[j] + t[j + 1] + t[j + 2] + t[j + 3] == "from"):
+                    score += 6
                 if (t[j] + t[j + 1] == "to"):
                     score += 3
                 if (t[j] + t[j + 1] == "of"):
@@ -91,6 +95,10 @@ def evaluate_bored_scribe():
                 if (t[j] + t[j + 1] == "er"):
                     score += 3
                 if (t[j] + t[j + 1] == "on"):
+                    score += 3
+                if (t[j] + t[j + 1] == "in"):
+                    score += 3
+                if (t[j] + t[j + 1] == "at"):
                     score += 3
                 if (t[j] + t[j + 1] == "an"):
                     score += 3
@@ -112,6 +120,9 @@ def evaluate_bored_scribe():
                     ans[-1][i] += ans[-1][i + 1]
                     ans[-1].pop(i + 1)
                     i += 1
+                elif (ans[-1][i] == "al" and i - 1 >= 0):
+                    ans[-1][i - 1] += ans[-1][i]
+                    ans[-1].pop(i)
                 else:
                     i += 1
             ans[-1] = " ".join(ans[-1])
