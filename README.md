@@ -1,6 +1,9 @@
+## Scoreboard
+![leaderboard](screencapture-cis2020-hk-team-backend-herokuapp-leaderboard-index-html-2020-09-27-18_23_33.png)
+
 These instruction are to help you solve a test challenge "Calculate Square". Instruction to this test challenge can be found at https://calculate-square.herokuapp.com/instructions
 
-Step by step
+## Step by step
 
 As per the instruction you have to implement a post endpoint /square
 
