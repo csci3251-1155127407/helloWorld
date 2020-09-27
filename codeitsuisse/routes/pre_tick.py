@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 @app.route('/pre-tick', methods=['POST'])
 def evaluate_pre_tick():
     data = request.get_data(as_text=True)
-    logging.info("data sent for evaluation {}".format(data))
+    # logging.info("data sent for evaluation {}".format(data))
     f = StringIO(data)
     df = pd.read_csv(f, sep=",")
 
