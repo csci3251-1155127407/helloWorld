@@ -120,7 +120,33 @@ def evaluate_bored_scribe():
                     ans[-1][i] += ans[-1][i + 1]
                     ans[-1].pop(i + 1)
                     i += 1
+                elif (ans[-1][i] == "un" and i + 1 < len(ans[-1])):
+                    ans[-1][i] += ans[-1][i + 1]
+                    ans[-1].pop(i + 1)
+                    i += 1
+                elif (ans[-1][i] == "im" and i + 1 < len(ans[-1])):
+                    ans[-1][i] += ans[-1][i + 1]
+                    ans[-1].pop(i + 1)
+                    i += 1
                 elif (ans[-1][i] == "al" and i - 1 >= 0):
+                    ans[-1][i - 1] += ans[-1][i]
+                    ans[-1].pop(i)
+                elif (ans[-1][i] == "ze" and i - 1 >= 0):
+                    ans[-1][i - 1] += ans[-1][i]
+                    ans[-1].pop(i)
+                elif (ans[-1][i] == "zed" and i - 1 >= 0):
+                    ans[-1][i - 1] += ans[-1][i]
+                    ans[-1].pop(i)
+                elif (ans[-1][i] == "ably" and i - 1 >= 0):
+                    ans[-1][i - 1] += ans[-1][i]
+                    ans[-1].pop(i)
+                elif (ans[-1][i] == "ion" and i - 1 >= 0 and ans[-1][i - 1][-1] == "t"):
+                    ans[-1][i - 1] += ans[-1][i]
+                    ans[-1].pop(i)
+                elif (ans[-1][i] == "ionate" and i - 1 >= 0 and ans[-1][i - 1][-1] == "t"):
+                    ans[-1][i - 1] += ans[-1][i]
+                    ans[-1].pop(i)
+                elif (ans[-1][i] == "able" and i - 1 >= 0 and not (ans[-1][i - 1][-1] in ["a", "e", "i", "o", "u"])):
                     ans[-1][i - 1] += ans[-1][i]
                     ans[-1].pop(i)
                 else:

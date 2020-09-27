@@ -209,5 +209,16 @@ ANS = [
 "with the wri estimating that agricultural output will need to increase by over fifty percent over the coming decades to feed a growing population it is becoming increasingly clear that the world will need to rethink what and how it eats",
 "at the international level the governments of canada kenya and the european commission alongside unep fi wwf and others have articulated the importance of future capital being deployed towards a healthy and sustainable blue or ocean economy",
 "yet by far the biggest threat to world oceans is deoxygenation",
-"we have seen an especially strong rise in demand from institutional investors"
+"we have seen an especially strong rise in demand from institutional investors",
+"in recognition of the relatively early stage of internalization of many of these environmental issues and the need to test new investment structures several major foundations are promoting layering or blending arrangements with investment products",
+"importantly we believe that the transition to a more sustainable consumer economy is a transsectoral challenge that will create opportunities beyond traditional consumer sectors",
+"this is despite the fact that aquaculture and mariculture referring to the cultivation of marine organisms in the open ocean in order to reduce negative environmental impacts on coastal waters if undertaken sustainably can be considered to be some of the most promising sectors of a sustainable blue economy",
+"however we should flag that some small countries that act as trade or financial entre pots like luxembourg have very heavy finance and trade flows relative to their gdp size and as such appear intensely globalized in the economic sense",
+"by contrast in germany where fossil fuels still comprise a large portion of the countrys total energy mix a car would need to drive at least one hundred and fifty thousand kilometers before it would become environmentally viable to make the leap",
+"does it pay to invest in the shares of saintly companies or sinful companies hong and kacperczyk defines in stocks as tobacco alcohol gambling and weaponry",
+"one is the lack of shortterm income security",
+"financially the world is highly globalized but less multi polar with the usa remaining at the centre of the financial world in terms of thes way that us markets have over others internationally and the central role of the dollar compared to the euro and renminbi",
+"for instance we deliver university courses in india including financial risk analytics and business management classes at bits pilani as well as financial technology classes at colleges in pune",
+"so widespread is the innovation process and yet managers continue to face unyielding organizations whose core business is being encroached on by google and amazon if not tencent or alibaba or some other digital upstarts",
+"todays ai applications are basically in the areas of text and natural language processing image or video analysis and pattern recognition in large often unstructured datasets"
 ]
