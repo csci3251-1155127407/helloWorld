@@ -32,9 +32,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f93a891-cdbc-402d-a835-072fd816d735" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-    </list>
+    <list default="true" id="2f93a891-cdbc-402d-a835-072fd816d735" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,7 +113,7 @@
       <updated>1533474856276</updated>
       <workItem from="1601030751963" duration="41122000" />
       <workItem from="1601125052412" duration="35732000" />
-      <workItem from="1601170359809" duration="4899000" />
+      <workItem from="1601170359809" duration="5199000" />
     </task>
     <servers />
   </component>
