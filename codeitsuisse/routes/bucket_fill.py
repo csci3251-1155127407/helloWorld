@@ -27,7 +27,7 @@ def evaluate_bucket():
             u = []
             for i in t:
                 j = list(map(int, i.split(",")))
-                print(j)
+                # print(j)
                 u += [j]
             if (len(u) == 2):
                 tubes += [u]
@@ -52,8 +52,8 @@ def evaluate_bucket():
 
         lines = lines[:x] + lines[y+1:]
             
-    print(tubes)
-    print(buckets)
+    # print(tubes)
+    # print(buckets)
 
     bye = [False] * len(buckets)
     for i in range(len(buckets)):
@@ -133,8 +133,8 @@ def evaluate_bucket():
                 ans += (bucket[2][0] - bucket[0][0] - 1) * (bucket[2][1] - bucket[0][1])
                 included[i] = True
 
-    if (ans > 60000):
-        ans = int(ans * 0.95)
+    # if (ans > 60000):
+    #     ans = int(ans * 0.95)
     result = {"result": ans}
     logging.info("My result :{}".format(result))
     return json.dumps(result);
