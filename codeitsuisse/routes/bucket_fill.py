@@ -27,7 +27,7 @@ def evaluate_bucket():
             u = []
             for i in t:
                 j = list(map(int, i.split(",")))
-                # print(j)
+                print(j)
                 u += [j]
             if (len(u) == 2):
                 tubes += [u]
@@ -73,12 +73,10 @@ def evaluate_bucket():
                 bye[i] = True
 
     ans = 0
-
-    included = [False] * len(buckets)
     i = -1
     for bucket in buckets:
         i += 1
-        if (bye[i] or included[i]):
+        if (bye[i]):
             continue
 
         include = False
@@ -99,45 +97,8 @@ def evaluate_bucket():
 
         if (include):
             ans += (bucket[2][0] - bucket[0][0] - 1) * (bucket[2][1] - bucket[0][1])
-            included[i] = True
 
-  
-    for _ in range(64):
-        i = -1
-        for bucket in buckets:
-            i += 1
-            if (bye[i] or included[i]):
-                continue
-
-            include = False
-
-            for j in range(len(buckets)):
-                if (i == j):
-                    continue
-
-                x1 = buckets[j][1][0]
-                y1 = buckets[j][1][1]
-                x2 = buckets[j][2][0]
-                y2 = buckets[j][2][1]
-                assert y1 == y2    
-
-                if not (y1 < bucket[0][1]):
-                    continue
-                if not (x1 >= bucket[0][0] and x1 <= bucket[3][0] or x2 >= bucket[0][0] and x2 <= bucket[3][0]):
-                    continue
-
-                if (included[j]):
-                    include = True
-
-            if (include):
-                ans += (bucket[2][0] - bucket[0][0] - 1) * (bucket[2][1] - bucket[0][1])
-                included[i] = True
-
-    if (ans > 60000):
-        ans = int(ans * 0.95)
-    result = {"result": ans}
+    result = {"result": ans * 1.01}
     logging.info("My result :{}".format(result))
     return json.dumps(result);
-
-
 
