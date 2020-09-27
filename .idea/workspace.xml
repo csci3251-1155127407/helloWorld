@@ -33,8 +33,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f93a891-cdbc-402d-a835-072fd816d735" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/codeitsuisse/routes/xerox.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codeitsuisse/routes/pre_tick.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codeitsuisse/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/codeitsuisse/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +116,7 @@
       <option name="presentableId" value="Default" />
       <updated>1533474856276</updated>
       <workItem from="1601030751963" duration="41122000" />
-      <workItem from="1601125052412" duration="33008000" />
+      <workItem from="1601125052412" duration="34246000" />
     </task>
     <servers />
   </component>
@@ -135,22 +136,22 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom" timestamp="1601166566384">
+    <state width="1877" height="278" key="GridCell.Tab.0.bottom" timestamp="1601167660938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601166566384" />
-    <state width="1877" height="278" key="GridCell.Tab.0.center" timestamp="1601166566384">
+    <state width="1877" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601167660938" />
+    <state width="1877" height="278" key="GridCell.Tab.0.center" timestamp="1601167660938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601166566384" />
-    <state width="1877" height="278" key="GridCell.Tab.0.left" timestamp="1601166566384">
+    <state width="1877" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601167660938" />
+    <state width="1877" height="278" key="GridCell.Tab.0.left" timestamp="1601167660938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601166566384" />
-    <state width="1877" height="278" key="GridCell.Tab.0.right" timestamp="1601166566384">
+    <state width="1877" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601167660938" />
+    <state width="1877" height="278" key="GridCell.Tab.0.right" timestamp="1601167660938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601166566384" />
+    <state width="1877" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601167660938" />
     <state x="99" y="74" key="MergeDialog" timestamp="1601136064256">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -163,10 +164,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1601088194810" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1601166394342">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1601167719919">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601166394342" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601167719919" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -179,6 +180,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/helloWorld$App.coverage" NAME="App Coverage Results" MODIFIED="1601166567394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/helloWorld$App.coverage" NAME="App Coverage Results" MODIFIED="1601167997959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
