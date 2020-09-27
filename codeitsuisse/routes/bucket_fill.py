@@ -15,22 +15,43 @@ def evaluate_bucket():
     tubes = []
     buckets = []
 
-    lines = data.split("\n")
-    for line in lines:
-        if (line.find("polyline") != -1):
+    lines = "".join(data.split("\n")[1:-1])
+    while (lines.find("<") != -1):
+        x = lines.find("<")
+        y = lines.find("/>") + 1
+        line = lines[x:y + 1]
+        if (lines[x + 1] == "p"):
             pos = line.find("s=") + 3
             line = line[pos:-4]
             t = line.split(" ")
             u = []
             for i in t:
                 j = list(map(int, i.split(",")))
+                print(j)
                 u += [j]
             if (len(u) == 2):
                 tubes += [u]
             else:
                 assert len(u) == 4
                 buckets += [u]
+        if (lines[x + 1] == "c"):
+            pos = line.find("\"") + 1
+            cx = ""
+            cy = ""
+            while (ord(line[pos]) >= ord("0") and ord(line[pos]) <= ord("9")):
+                cx += line[pos]
+                pos += 1
+            while not (ord(line[pos]) >= ord("0") and ord(line[pos]) <= ord("9")):
+                pos += 1
+            while (ord(line[pos]) >= ord("0") and ord(line[pos]) <= ord("9")):
+                cy += line[pos]
+                pos += 1
+            cx = int(cx)
+            cy = int(cy)
+            tubes += [[[cx, cy], [cx, cy]]]
 
+        lines = lines[:x] + lines[y+1:]
+            
     print(tubes)
     print(buckets)
 
