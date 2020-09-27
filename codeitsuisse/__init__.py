@@ -20,3 +20,4 @@ import codeitsuisse.routes.slsm
 import codeitsuisse.routes.bucket_fill
 import codeitsuisse.routes.swaphedge
 import codeitsuisse.routes.supermarket
+import codeitsuisse.routes.xerox
