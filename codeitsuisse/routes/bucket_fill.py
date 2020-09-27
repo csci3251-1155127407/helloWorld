@@ -55,8 +55,30 @@ def evaluate_bucket():
     print(tubes)
     print(buckets)
 
+    bye = [False] * len(buckets)
+    for i in range(len(buckets)):
+        for j in range(len(buckets)):
+            if (i == j):
+                continue
+            go = True
+            if not (buckets[i][0][0] > buckets[j][0][0] and buckets[i][0][1] > buckets[j][0][1]):
+                go = False
+            if not (buckets[i][1][0] > buckets[j][1][0] and buckets[i][1][1] < buckets[j][1][1]):
+                go = False
+            if not (buckets[i][2][0] < buckets[j][2][0] and buckets[i][2][1] < buckets[j][2][1]):
+                go = False
+            if not (buckets[i][3][0] < buckets[j][3][0] and buckets[i][3][1] > buckets[j][3][1]):
+                go = False
+            if (go):
+                bye[i] = True
+
     ans = 0
+    i = -1
     for bucket in buckets:
+        i += 1
+        if (bye[i]):
+            continue
+
         include = False
 
         for tube in tubes:
