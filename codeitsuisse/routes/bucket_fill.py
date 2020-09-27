@@ -98,7 +98,7 @@ def evaluate_bucket():
         if (include):
             ans += (bucket[2][0] - bucket[0][0] - 1) * (bucket[2][1] - bucket[0][1])
 
-    result = {"result": ans * 0.96}
+    result = {"result": int(ans * 0.975)}
     logging.info("My result :{}".format(result))
     return json.dumps(result);
 
