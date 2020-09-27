@@ -14,7 +14,7 @@ def evaluate_super():
     logging.info("data sent for evaluation {}".format(data))
     tests = data.get("tests");
 
-    result = {"answer" : {}}
+    result = {"answers" : {}}
 
     dirx = [0, 0, 1, -1]
     diry = [1, -1, 0, 0]
@@ -48,7 +48,7 @@ def evaluate_super():
                 vis[dx][dy] = 1
                 que.append((dx, dy, front[2] + 1))
 
-        result["answer"][test] = res
+        result["answers"][test] = res
 
     logging.info("My result :{}".format(result))
     return json.dumps(result);
